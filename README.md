@@ -44,8 +44,8 @@
 | Requests | HTTP-запросы |
 | Git | Контроль версий |
 
-Перед запуском необходимо:
-Создать .env файл с переменоой BASE_DOMAIN равный тестируемому API https://petstore3.swagger.io/api/v3/
-Обновить зависимости pip install -r requirements.txt
-Запустить прогон pytest
-Собрать allure отчет allure serve
+- **Перед запуском необходимо**:
+ - Создать .env файл с переменоой BASE_DOMAIN равный тестируемому API https://petstore3.swagger.io/api/v3/
+ - Обновить зависимости pip install -r requirements.txt
+ - Запустить прогон pytest
+ - Собрать allure отчет allure serve
