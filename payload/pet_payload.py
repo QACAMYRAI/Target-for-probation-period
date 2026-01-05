@@ -5,14 +5,13 @@ class PetPayload:
         self.faker = Faker()
 
 
-    def create_pet_payload(self,
-                           pet_id=None,
-                           name=None,
-                           status=None,
-                           category=None,
-                           photo_urls=None,
-                           tags=None,
-                           remove_keys=None):
+    def create_pet_payload(self, pet_id: int = None,
+                       name: str = None,
+                       status: str = None,
+                       category: str = None,
+                       photo_urls: str = None,
+                       tags: str = None,
+                       remove_keys: str = None):
         payload = {
             "id": pet_id if pet_id is not None else self.faker.random_int(min=1, max=99999),
             "name": name if name is not None else self.faker.first_name(),
@@ -43,14 +42,13 @@ class PetPayload:
         return payload
 
 
-    def update_pet_payload(self,
-                           pet_id,
-                           name=None,
-                           status=None,
-                           category=None,
-                           photo_urls=None,
-                           tags=None,
-                           remove_keys=None):
+    def update_pet_payload(self, pet_id: int = None,
+                       name: str = None,
+                       status: str = None,
+                       category: str = None,
+                       photo_urls: str = None,
+                       tags: str = None,
+                       remove_keys: str = None):
         payload = {
             "id": pet_id,
             "name": name if name is not None else self.faker.first_name(),
