@@ -7,13 +7,11 @@ from api.api_methods import API
 @allure.story('API тесты')
 @allure.suite('Блок Pet')
 class TestApiPet:
-
     def setup_method(self):
         """Инициализация перед каждым тестом"""
         self.api_methods = API()
         self.base_methods = BasePage()
         self.created_pet_ids = []
-
 
     def teardown_method(self):
         """Очистка после каждого теста"""
