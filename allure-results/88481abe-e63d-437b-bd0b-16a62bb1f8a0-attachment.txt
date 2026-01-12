@@ -1,0 +1,1 @@
+curl -X DELETE -H 'User-Agent: python-requests/2.32.5' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 0' https://petstore.swagger.io/v2/pet/13774

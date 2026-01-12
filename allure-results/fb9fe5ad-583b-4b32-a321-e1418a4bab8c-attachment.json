@@ -1,0 +1,18 @@
+{
+    "id": 20830,
+    "category": {
+        "id": 6,
+        "name": "Reptiles"
+    },
+    "name": "Destiny",
+    "photoUrls": [
+        "https://picsum.photos/200/200"
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "name": "exist"
+        }
+    ],
+    "status": "available"
+}

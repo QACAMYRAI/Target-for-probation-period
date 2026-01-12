@@ -1,0 +1,18 @@
+{
+    "id": 96287,
+    "category": {
+        "id": 9,
+        "name": "Reptiles"
+    },
+    "name": "Guy",
+    "photoUrls": [
+        "https://placekitten.com/200/200"
+    ],
+    "tags": [
+        {
+            "id": 3,
+            "name": "reach"
+        }
+    ],
+    "status": "sold"
+}

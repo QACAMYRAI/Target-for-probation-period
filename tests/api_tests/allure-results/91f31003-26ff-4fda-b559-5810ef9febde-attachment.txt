@@ -1,0 +1,1 @@
+curl -H 'User-Agent: python-requests/2.32.5' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 118' -H 'Content-Type: application/json' -d '{"id": 0, "petId": 69294, "quantity": 1, "shipDate": "2030-12-31T23:59:59.999Z", "status": "placed", "complete": true}' https://petstore.swagger.io/v2/store/order

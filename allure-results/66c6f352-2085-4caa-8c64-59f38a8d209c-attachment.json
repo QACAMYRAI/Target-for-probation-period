@@ -1,0 +1,18 @@
+{
+    "id": 35457,
+    "category": {
+        "id": 3,
+        "name": "Cats"
+    },
+    "name": "James",
+    "photoUrls": [
+        "https://dummyimage.com/200x200"
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "name": "explain"
+        }
+    ],
+    "status": "available"
+}

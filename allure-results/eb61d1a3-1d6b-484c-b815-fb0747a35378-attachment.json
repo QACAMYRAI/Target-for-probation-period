@@ -1,0 +1,18 @@
+{
+    "id": 8513,
+    "category": {
+        "id": 10,
+        "name": "Birds"
+    },
+    "name": "Becky",
+    "photoUrls": [
+        "https://picsum.photos/200/200"
+    ],
+    "tags": [
+        {
+            "id": 9,
+            "name": "at"
+        }
+    ],
+    "status": "sold"
+}

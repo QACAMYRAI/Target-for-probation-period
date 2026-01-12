@@ -1,0 +1,13 @@
+{
+    "id": 48470,
+    "category": {
+        "id": 1,
+        "name": "Fish"
+    },
+    "name": "Гав",
+    "photoUrls": [
+        "https://placekitten.com/200/200"
+    ],
+    "tags": [],
+    "status": "available"
+}

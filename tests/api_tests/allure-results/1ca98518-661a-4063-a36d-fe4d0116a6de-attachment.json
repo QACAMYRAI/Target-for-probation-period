@@ -1,0 +1,18 @@
+{
+    "id": 69294,
+    "category": {
+        "id": 9,
+        "name": "Fish"
+    },
+    "name": "Alejandro",
+    "photoUrls": [
+        "https://dummyimage.com/200x200"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "office"
+        }
+    ],
+    "status": "sold"
+}

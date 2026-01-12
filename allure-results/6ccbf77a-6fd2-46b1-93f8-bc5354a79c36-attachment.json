@@ -1,0 +1,18 @@
+{
+  "id": 18223,
+  "name": "Ryan",
+  "category": {
+    "id": 9,
+    "name": "Reptiles"
+  },
+  "photoUrls": [
+    "https://dummyimage.com/200x200"
+  ],
+  "tags": [
+    {
+      "id": 6,
+      "name": "around"
+    }
+  ],
+  "status": "available"
+}

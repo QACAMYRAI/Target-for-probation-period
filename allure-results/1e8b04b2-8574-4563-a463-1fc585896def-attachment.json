@@ -1,0 +1,16 @@
+{
+    "id": 77816,
+    "category": {
+        "id": 10,
+        "name": "Fish"
+    },
+    "name": "Тест",
+    "photoUrls": [],
+    "tags": [
+        {
+            "id": 9,
+            "name": "find"
+        }
+    ],
+    "status": "wrong"
+}

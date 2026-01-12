@@ -1,0 +1,14 @@
+{
+    "id": 18043,
+    "name": "Рекс",
+    "photoUrls": [
+        "https://dummyimage.com/200x200"
+    ],
+    "tags": [
+        {
+            "id": 8,
+            "name": "become"
+        }
+    ],
+    "status": "available"
+}

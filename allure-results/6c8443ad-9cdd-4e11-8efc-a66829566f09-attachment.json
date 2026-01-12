@@ -1,0 +1,18 @@
+{
+    "id": 73177,
+    "category": {
+        "id": 6,
+        "name": "Cats"
+    },
+    "name": "Шарик",
+    "photoUrls": [
+        "https://placekitten.com/200/200"
+    ],
+    "tags": [
+        {
+            "id": 10,
+            "name": "style"
+        }
+    ],
+    "status": "pending"
+}

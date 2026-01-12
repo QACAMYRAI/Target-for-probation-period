@@ -1,0 +1,16 @@
+{
+  "id": 95023,
+  "name": "Кеша",
+  "category": {
+    "id": 8,
+    "name": "Reptiles"
+  },
+  "photoUrls": [],
+  "tags": [
+    {
+      "id": 8,
+      "name": "cold"
+    }
+  ],
+  "status": "available"
+}

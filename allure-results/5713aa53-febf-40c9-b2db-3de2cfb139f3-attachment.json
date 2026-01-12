@@ -1,0 +1,18 @@
+{
+    "id": 99522,
+    "category": {
+        "id": 9,
+        "name": "Cats"
+    },
+    "name": "Douglas",
+    "photoUrls": [
+        "https://dummyimage.com/200x200"
+    ],
+    "tags": [
+        {
+            "id": 5,
+            "name": "build"
+        }
+    ],
+    "status": "available"
+}

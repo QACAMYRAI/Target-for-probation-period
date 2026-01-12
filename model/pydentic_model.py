@@ -1,9 +1,29 @@
-from typing import List, Optional
+from typing import List, Optional, Dict
 from pydantic import BaseModel, RootModel, field_validator, ConfigDict
 from pydantic import ValidationError
 import allure
 import json
 from functools import wraps
+
+
+
+class CreateOrderResponse(BaseModel):
+    id: int
+    petId: int
+    quantity: int
+    shipDate: str
+    status: str
+    complete: bool
+
+
+class GetFormDataPet(BaseModel):
+    code: int
+    type: str
+    message: str
+
+
+class InventoryModel(RootModel[Dict[str, int]]):
+    pass
 
 
 class Category(BaseModel):
@@ -25,6 +45,7 @@ class PetResponse(BaseModel):
     status: str
 
     model_config = ConfigDict(extra='forbid')
+
 
     @field_validator('photoUrls', mode='before')
     @classmethod
@@ -51,7 +72,7 @@ def validate_with_pydantic(model_class):
         @wraps(func)
         def wrapper(self, *args, **kwargs):
             response = func(self, *args, **kwargs)
-            if response.status_code == 404:
+            if response.status_code in (404, 500):
                 return response
 
             try:
@@ -63,7 +84,7 @@ def validate_with_pydantic(model_class):
                 else:
                     validated = model_class.model_validate(json_data)
                 if isinstance(validated, RootModel):
-                    result = [item.model_dump() for item in validated.root]
+                    result = validated.model_dump()
                 else:
                     result = validated.model_dump()
 

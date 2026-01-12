@@ -1,0 +1,11 @@
+{
+  "id": 23117,
+  "name": "Имя",
+  "category": {
+    "id": 4,
+    "name": "Fish"
+  },
+  "photoUrls": [],
+  "tags": [],
+  "status": "available"
+}

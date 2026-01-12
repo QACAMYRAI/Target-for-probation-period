@@ -1,0 +1,18 @@
+{
+    "id": 24584,
+    "category": {
+        "id": 6,
+        "name": "Reptiles"
+    },
+    "name": "Ruth",
+    "photoUrls": [
+        "https://placekitten.com/200/200"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "agreement"
+        }
+    ],
+    "status": "sold"
+}

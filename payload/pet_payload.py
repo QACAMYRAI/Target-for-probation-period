@@ -79,3 +79,31 @@ class PetPayload:
         return payload
 
 
+    def create_pet_order_payload(self,
+                                 pet_id: int,
+                                 quantity: int = None,
+                                 ship_date: str = None,
+                                 status: str = 'placed',
+                                 complete: bool = True,
+                                 remove_keys: str = None):
+        if ship_date is None:
+            from datetime import datetime
+            ship_date = datetime.utcnow().isoformat() + "Z"
+
+        payload = {
+            "id": 0,
+            "petId": pet_id,
+            "quantity": quantity if quantity is not None else self.faker.random_int(min=1, max=10),
+            "shipDate": ship_date,
+            "status": status,
+            "complete": complete
+        }
+
+        if remove_keys:
+            keys_to_remove = [key.lower() for key in remove_keys]
+            for key in list(payload.keys()):
+                if key.lower() in keys_to_remove:
+                    del payload[key]
+
+        return payload
+

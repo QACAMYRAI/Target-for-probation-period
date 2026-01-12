@@ -1,0 +1,1 @@
+curl -X PUT -H 'User-Agent: python-requests/2.32.5' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 105' -H 'Content-Type: application/json' -d '{"id": 23117, "name": "\u0418\u043c\u044f", "category": {"id": 4, "name": "Fish"}, "status": "available"}' https://petstore.swagger.io/v2/pet

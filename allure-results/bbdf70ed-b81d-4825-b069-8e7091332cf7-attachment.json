@@ -1,0 +1,18 @@
+{
+    "id": 94974,
+    "category": {
+        "id": 5,
+        "name": "Reptiles"
+    },
+    "name": "Kimberly",
+    "photoUrls": [
+        "https://picsum.photos/200/200"
+    ],
+    "tags": [
+        {
+            "id": 7,
+            "name": "stock"
+        }
+    ],
+    "status": "sold"
+}

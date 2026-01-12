@@ -1,0 +1,18 @@
+{
+    "id": 19663,
+    "category": {
+        "id": 1,
+        "name": "Birds"
+    },
+    "name": "Tyler",
+    "photoUrls": [
+        "https://dummyimage.com/200x200"
+    ],
+    "tags": [
+        {
+            "id": 10,
+            "name": "sister"
+        }
+    ],
+    "status": "sold"
+}

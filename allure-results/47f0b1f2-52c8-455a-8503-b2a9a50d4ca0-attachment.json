@@ -1,0 +1,18 @@
+{
+    "id": 47389,
+    "category": {
+        "id": 2,
+        "name": "Birds"
+    },
+    "name": "НовоеИмя",
+    "photoUrls": [
+        "https://dummyimage.com/200x200"
+    ],
+    "tags": [
+        {
+            "id": 8,
+            "name": "impact"
+        }
+    ],
+    "status": "sold"
+}

@@ -1,0 +1,18 @@
+{
+  "id": 90584,
+  "name": "Amanda",
+  "category": {
+    "id": 6,
+    "name": "Birds"
+  },
+  "photoUrls": [
+    "https://picsum.photos/200/200"
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "once"
+    }
+  ],
+  "status": "available"
+}

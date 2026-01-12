@@ -1,0 +1,18 @@
+{
+  "id": 94328,
+  "name": "Matthew",
+  "category": {
+    "id": 1,
+    "name": "Birds"
+  },
+  "photoUrls": [
+    "https://placekitten.com/200/200"
+  ],
+  "tags": [
+    {
+      "id": 6,
+      "name": "then"
+    }
+  ],
+  "status": "available"
+}

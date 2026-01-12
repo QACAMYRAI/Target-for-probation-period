@@ -1,0 +1,18 @@
+{
+  "id": 70416,
+  "name": "Тест",
+  "category": {
+    "id": 5,
+    "name": "Birds"
+  },
+  "photoUrls": [
+    "https://dummyimage.com/200x200"
+  ],
+  "tags": [
+    {
+      "id": 9,
+      "name": "evidence"
+    }
+  ],
+  "status": "invalid"
+}

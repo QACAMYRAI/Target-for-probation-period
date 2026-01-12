@@ -1,0 +1,18 @@
+{
+  "id": 78492,
+  "name": "Norman",
+  "category": {
+    "id": 3,
+    "name": "Fish"
+  },
+  "photoUrls": [
+    "https://dummyimage.com/200x200"
+  ],
+  "tags": [
+    {
+      "id": 2,
+      "name": "season"
+    }
+  ],
+  "status": "sold"
+}

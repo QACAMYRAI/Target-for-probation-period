@@ -1,0 +1,18 @@
+{
+    "id": 47389,
+    "category": {
+        "id": 4,
+        "name": "Dogs"
+    },
+    "name": "Kristin",
+    "photoUrls": [
+        "https://dummyimage.com/200x200"
+    ],
+    "tags": [
+        {
+            "id": 2,
+            "name": "usually"
+        }
+    ],
+    "status": "sold"
+}
