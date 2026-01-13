@@ -1,1 +1,0 @@
-curl -H 'User-Agent: python-requests/2.32.5' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 136' -H 'Content-Type: application/json' -d '{"id": 68159, "name": "", "photoUrls": ["https://picsum.photos/200/200"], "tags": [{"id": 4, "name": "discuss"}], "status": "available"}' https://petstore.swagger.io/v2/pet

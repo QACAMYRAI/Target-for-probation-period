@@ -7,6 +7,12 @@ from functools import wraps
 
 
 
+class CreateUser(BaseModel):
+    code: int
+    message: str
+    type: str
+
+
 class CreateOrderResponse(BaseModel):
     id: int
     petId: int
@@ -71,7 +77,12 @@ def validate_with_pydantic(model_class):
     def decorator(func):
         @wraps(func)
         def wrapper(self, *args, **kwargs):
-            response = func(self, *args, **kwargs)
+            func_return = func(self, *args, **kwargs)
+            if isinstance(func_return, tuple):
+                response = func_return[0]
+                data = func_return[1]
+            else:
+                response = func_return
             if response.status_code in (404, 500):
                 return response
 
@@ -93,7 +104,10 @@ def validate_with_pydantic(model_class):
                     name=f"Validated {model_class.__name__}",
                     attachment_type=allure.attachment_type.JSON
                 )
-                return response
+                if isinstance(func_return, tuple):
+                    return response, data
+                else:
+                    return response
             except ValidationError as e:
                 allure.attach(
                     str(e.errors()),

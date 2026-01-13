@@ -107,3 +107,36 @@ class PetPayload:
 
         return payload
 
+
+    def create_user_payload(self, user_id: int = None,
+                            username: str = None,
+                            first_name: str = None,
+                            last_name: str = None,
+                            email: str = None,
+                            password: str = None,
+                            phone: str = None,
+                            user_status: int = None,
+                            remove_keys: list = None):
+
+        payload = {
+            "id": user_id or self.faker.random_int(min=0, max=999),
+            "username": username or self.faker.user_name(),
+            "firstName": first_name or self.faker.first_name(),
+            "lastName": last_name or self.faker.last_name(),
+            "email": email or self.faker.email(),
+            "password": password or self.faker.password(),
+            "phone": phone or self.faker.phone_number(),
+            "userStatus": user_status or 0
+        }
+        if remove_keys:
+            if isinstance(remove_keys, str):
+                keys_to_remove = [key.strip().lower() for key in remove_keys.split(',')]
+            else:
+                keys_to_remove = [key.lower() for key in remove_keys]
+
+            for key in list(payload.keys()):
+                if key.lower() in keys_to_remove:
+                    del payload[key]
+
+        return payload
+

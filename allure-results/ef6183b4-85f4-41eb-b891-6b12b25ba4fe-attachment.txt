@@ -1,1 +1,0 @@
-curl -H 'User-Agent: python-requests/2.32.5' -H 'Accept-Encoding: gzip, deflate' -H 'accept: application/json' -H 'Connection: keep-alive' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Content-Length: 65' -d 'name=%D0%9D%D0%BE%D0%B2%D0%BE%D0%B5%D0%98%D0%BC%D1%8F&status=sold' https://petstore.swagger.io/v2/pet/14206

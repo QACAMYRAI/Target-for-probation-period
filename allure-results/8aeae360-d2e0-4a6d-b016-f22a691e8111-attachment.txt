@@ -1,1 +1,0 @@
-curl -H 'User-Agent: python-requests/2.32.5' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 155' -H 'Content-Type: application/json' -d '{"id": 48470, "name": "\u0413\u0430\u0432", "category": {"id": 1, "name": "Fish"}, "photoUrls": ["https://placekitten.com/200/200"], "status": "available"}' https://petstore.swagger.io/v2/pet

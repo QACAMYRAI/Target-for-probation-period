@@ -1,1 +1,0 @@
-curl -H 'User-Agent: python-requests/2.32.5' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 152' -H 'Content-Type: application/json' -d '{"id": 95023, "name": "\u041a\u0435\u0448\u0430", "category": {"id": 8, "name": "Reptiles"}, "tags": [{"id": 8, "name": "cold"}], "status": "available"}' https://petstore.swagger.io/v2/pet

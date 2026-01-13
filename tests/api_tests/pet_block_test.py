@@ -177,14 +177,13 @@ class TestApiPet:
         self.base_methods.check_for_equality_two_variables(created_pet, updated_pet_info)
 
 
-    @allure.tag("ТК-34")
     @allure.severity(severity_level='normal')
     @allure.title('Тест загрузки изображения питомца')
     @pytest.mark.parametrize('file_name, status_code',
                              [
-                                 pytest.param("test.txt", 415, marks=[allure.tag("ТК-35")]),
-                                 pytest.param('images.jpeg', 200, marks=[allure.tag("ТК-36")]),
-                                 pytest.param('images.png', 200, marks=[allure.tag("ТК-37")]),
+                                 pytest.param("test.txt", 415, marks=[allure.tag("ТК-34")]),
+                                 pytest.param('images.jpeg', 200, marks=[allure.tag("ТК-35")]),
+                                 pytest.param('images.png', 200, marks=[allure.tag("ТК-36")]),
                              ]
     )
     def test_upload_pet_image(self, file_name, status_code):

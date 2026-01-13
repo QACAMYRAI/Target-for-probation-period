@@ -21,7 +21,7 @@ class BasePage:
                           attachment_type=allure.attachment_type.TEXT)
             raise
 
-    @allure.step('Проверить что в словаер есть определенный ключ с определенным значением')
+    @allure.step('Проверить что в словарь есть определенный ключ с определенным значением')
     def check_all_have_key(self, data_list, key_path, expected_value=None):
         for item in data_list:
             value = item
