@@ -43,7 +43,7 @@ class API:
                                   timeout=10,
                                   )
         assert response.status_code == status_code, f'Статус код {response.status_code} не равен {status_code}'
-        return response
+        return response, data
 
 
     @validate_with_pydantic(GetFormDataPet)
@@ -54,11 +54,11 @@ class API:
                                          status_code: int = 200,
                                          remove_keys=''):
         data = {
-            "name": name,
-            "status": status
+            'name': name,
+            'status': status
         }
 
-        if remove_keys != "":
+        if remove_keys != '':
             for item in remove_keys:
                 del data[item]
         headers = {
@@ -128,7 +128,7 @@ class API:
         file_path_full = control_docs_dir / file_name
 
         if not file_path_full.exists():
-            raise FileNotFoundError(f"Файл не найден: {file_path_full}")
+            raise FileNotFoundError(f'Файл не найден: {file_path_full}')
 
         with open(file_path_full, 'rb') as file:
             files = {'file': (file_name, file, 'image/jpeg')}

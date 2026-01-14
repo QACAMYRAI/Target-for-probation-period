@@ -38,7 +38,6 @@ def allure_request_logger(function):
 
 
 class BaseSession(Session):
-
     def __init__(self, **kwargs):
         self.base_url = kwargs.pop('base_url')
         super().__init__()

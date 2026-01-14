@@ -1,0 +1,17 @@
+allure-results/
+allure-report/
+allure/
+*.json
+*.txt
+*.properties
+*.zip
+test-results/
+reports/
+output/
+.env
+.venv
+.env/
+venv/
+.env/
+env.bak/
+venv.bak/

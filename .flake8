@@ -5,7 +5,7 @@ exclude =
     *.pyc,
     **/db/models/**,
     lib/databases/**/models.py,
-ignore = ANN101, W503
+ignore = ANN101, W503, E303,  D100, D101, D102, D103, D104, E722, W292
 per-file-ignores =
     __init__.py:F401
 import-order-style = pycharm

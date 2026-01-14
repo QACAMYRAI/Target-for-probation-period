@@ -12,6 +12,8 @@ class CreateUser(BaseModel):
     message: str
     type: str
 
+    model_config = ConfigDict(extra='forbid')
+
 
 class CreateOrderResponse(BaseModel):
     id: int
@@ -21,11 +23,15 @@ class CreateOrderResponse(BaseModel):
     status: str
     complete: bool
 
+    model_config = ConfigDict(extra='forbid')
+
 
 class GetFormDataPet(BaseModel):
     code: int
     type: str
     message: str
+
+    model_config = ConfigDict(extra='forbid')
 
 
 class InventoryModel(RootModel[Dict[str, int]]):
@@ -34,17 +40,21 @@ class InventoryModel(RootModel[Dict[str, int]]):
 
 class Category(BaseModel):
     id: int
-    name: str = ""
+    name: str = ''
+
+    model_config = ConfigDict(extra='forbid')
 
 
 class Tag(BaseModel):
     id: int
-    name: str = ""
+    name: str = ''
+
+    model_config = ConfigDict(extra='forbid')
 
 
 class PetResponse(BaseModel):
     id: int
-    name: str = ""
+    name: str = ''
     category: Optional[Category] = None
     photoUrls: List[str] = []
     tags: List[Tag] = []
@@ -101,7 +111,7 @@ def validate_with_pydantic(model_class):
 
                 allure.attach(
                     json.dumps(result, indent=2, ensure_ascii=False),
-                    name=f"Validated {model_class.__name__}",
+                    name=f'Validated {model_class.__name__}',
                     attachment_type=allure.attachment_type.JSON
                 )
                 if isinstance(func_return, tuple):
@@ -111,17 +121,17 @@ def validate_with_pydantic(model_class):
             except ValidationError as e:
                 allure.attach(
                     str(e.errors()),
-                    name="Validation Errors",
+                    name='Validation Errors',
                     attachment_type=allure.attachment_type.TEXT
                 )
-                raise AssertionError(f"Ответ не соответствует схеме {model_class.__name__}: {e}")
+                raise AssertionError(f'Ответ не соответствует схеме {model_class.__name__}: {e}')
             except json.JSONDecodeError as e:
                 allure.attach(
                     response.text,
-                    name="Invalid JSON Response",
+                    name='Invalid JSON Response',
                     attachment_type=allure.attachment_type.TEXT
                 )
-                raise AssertionError(f"Ответ не является валидным JSON: {e}")
+                raise AssertionError(f'Ответ не является валидным JSON: {e}')
 
         return wrapper
 

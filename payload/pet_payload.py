@@ -13,23 +13,23 @@ class PetPayload:
                        tags: str = None,
                        remove_keys: str = None):
         payload = {
-            "id": pet_id if pet_id is not None else self.faker.random_int(min=1, max=99999),
-            "name": name if name is not None else self.faker.first_name(),
-            "category": category if category is not None else {
-                "id": self.faker.random_int(min=1, max=10),
-                "name": self.faker.random_element(elements=("Dogs", "Cats", "Birds", "Fish", "Reptiles"))
+            'id': pet_id if pet_id is not None else self.faker.random_int(min=1, max=99999),
+            'name': name if name is not None else self.faker.first_name(),
+            'category': category if category is not None else {
+                'id': self.faker.random_int(min=1, max=10),
+                'name': self.faker.random_element(elements=('Dogs', 'Cats', 'Birds', 'Fish', 'Reptiles'))
             },
-            "photoUrls": photo_urls if photo_urls is not None else [
+            'photoUrls': photo_urls if photo_urls is not None else [
                 self.faker.image_url(width=200, height=200)
             ],
-            "tags": tags if tags is not None else [
+            'tags': tags if tags is not None else [
                 {
-                    "id": self.faker.random_int(min=0, max=10),
-                    "name": self.faker.word()
+                    'id': self.faker.random_int(min=0, max=10),
+                    'name': self.faker.word()
                 }
             ],
-            "status": status if status is not None else self.faker.random_element(
-                elements=("available", "pending", "sold")
+            'status': status if status is not None else self.faker.random_element(
+                elements=('available', 'pending', 'sold')
             )
         }
 
@@ -50,23 +50,23 @@ class PetPayload:
                        tags: str = None,
                        remove_keys: str = None):
         payload = {
-            "id": pet_id,
-            "name": name if name is not None else self.faker.first_name(),
-            "category": category if category is not None else {
-                "id": self.faker.random_int(min=1, max=10),
-                "name": self.faker.random_element(elements=("Dogs", "Cats", "Birds", "Fish", "Reptiles"))
+            'id': pet_id,
+            'name': name if name is not None else self.faker.first_name(),
+            'category': category if category is not None else {
+                'id': self.faker.random_int(min=1, max=10),
+                'name': self.faker.random_element(elements=('Dogs', 'Cats', 'Birds', 'Fish', 'Reptiles'))
             },
-            "photoUrls": photo_urls if photo_urls is not None else [
+            'photoUrls': photo_urls if photo_urls is not None else [
                 self.faker.image_url(width=200, height=200)
             ],
-            "tags": tags if tags is not None else [
+            'tags': tags if tags is not None else [
                 {
-                    "id": self.faker.random_int(min=0, max=10),
-                    "name": self.faker.word()
+                    'id': self.faker.random_int(min=0, max=10),
+                    'name': self.faker.word()
                 }
             ],
-            "status": status if status is not None else self.faker.random_element(
-                elements=("available", "pending", "sold")
+            'status': status if status is not None else self.faker.random_element(
+                elements=('available', 'pending', 'sold')
             )
         }
 
@@ -88,15 +88,15 @@ class PetPayload:
                                  remove_keys: str = None):
         if ship_date is None:
             from datetime import datetime
-            ship_date = datetime.utcnow().isoformat() + "Z"
+            ship_date = datetime.utcnow().isoformat() + 'Z'
 
         payload = {
-            "id": 0,
-            "petId": pet_id,
-            "quantity": quantity if quantity is not None else self.faker.random_int(min=1, max=10),
-            "shipDate": ship_date,
-            "status": status,
-            "complete": complete
+            'id': 0,
+            'petId': pet_id,
+            'quantity': quantity if quantity is not None else self.faker.random_int(min=1, max=10),
+            'shipDate': ship_date,
+            'status': status,
+            'complete': complete
         }
 
         if remove_keys:
@@ -119,14 +119,14 @@ class PetPayload:
                             remove_keys: list = None):
 
         payload = {
-            "id": user_id or self.faker.random_int(min=0, max=999),
-            "username": username or self.faker.user_name(),
-            "firstName": first_name or self.faker.first_name(),
-            "lastName": last_name or self.faker.last_name(),
-            "email": email or self.faker.email(),
-            "password": password or self.faker.password(),
-            "phone": phone or self.faker.phone_number(),
-            "userStatus": user_status or 0
+            'id': user_id or self.faker.random_int(min=0, max=999),
+            'username': username or self.faker.user_name(),
+            'firstName': first_name or self.faker.first_name(),
+            'lastName': last_name or self.faker.last_name(),
+            'email': email or self.faker.email(),
+            'password': password or self.faker.password(),
+            'phone': phone or self.faker.phone_number(),
+            'userStatus': user_status or 0
         }
         if remove_keys:
             if isinstance(remove_keys, str):

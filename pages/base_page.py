@@ -14,10 +14,10 @@ class BasePage:
         try:
             assert before == after, f'Переменная "{before}" не равна переменной "{after}"'
         except AssertionError as e:
-            allure.attach(str(before), name="Значение before", attachment_type=allure.attachment_type.TEXT)
-            allure.attach(str(after), name="Значение after", attachment_type=allure.attachment_type.TEXT)
-            allure.attach(f"Ожидалось: {before}\nФактически: {after}",
-                          name="Разница значений",
+            allure.attach(str(before), name='Значение before', attachment_type=allure.attachment_type.TEXT)
+            allure.attach(str(after), name='Значение after', attachment_type=allure.attachment_type.TEXT)
+            allure.attach(f'Ожидалось: {before}\nФактически: {after}',
+                          name='Разница значений',
                           attachment_type=allure.attachment_type.TEXT)
             raise
 
@@ -34,6 +34,6 @@ class BasePage:
                     value = value[key]
 
             if expected_value is not None:
-                assert value == expected_value, f"Значение {value} != {expected_value}"
+                assert value == expected_value, f'Значение {value} != {expected_value}'
 
         return True
