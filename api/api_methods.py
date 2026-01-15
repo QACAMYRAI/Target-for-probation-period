@@ -1,4 +1,5 @@
 import allure
+import time
 from payload.pet_payload import PetPayload
 from utils.sessions import main_url
 import tests
@@ -188,11 +189,47 @@ class API:
 
 
     @validate_with_pydantic(CreateOrderResponse)
-    @allure.step('Получить информацию о заказе питомца по APi')
-    def get_pet_order_by_api(self, order_id: int, status_code: int = 200):
-        response = main_url().get(f'store/order/{order_id}')
-        assert response.status_code == status_code, f'Статус код {response.status_code} не равен {status_code}'
-        return response
+    @allure.step('Получить информацию о заказе питомца по API')
+    def get_pet_order_by_api(self,
+                             order_id: int,
+                             status_code: int = 200,
+                             max_retries: int = 2,
+                             retry_delay: float = 0.5):
+
+        for attempt in range(1, max_retries + 1):
+            try:
+                response = main_url().get(f'store/order/{order_id}')
+
+                if response.status_code == status_code:
+                    return response
+
+                if attempt < max_retries:
+                    allure.attach(
+                        f"Попытка {attempt} неудачна. Статус код: {response.status_code}. "
+                        f"Ожидалось: {status_code}. Повтор через {retry_delay}с.",
+                        name=f"Retry attempt {attempt}"
+                    )
+                    time.sleep(retry_delay)
+                else:
+                    assert False, (
+                        f"Статус код {response.status_code} не равен {status_code} "
+                        f"после {max_retries} попыток. Ответ: {response.text}"
+                    )
+
+            except Exception as e:
+                if attempt < max_retries:
+                    allure.attach(
+                        f"Попытка {attempt} вызвала исключение: {str(e)}. "
+                        f"Повтор через {retry_delay}с.",
+                        name=f"Exception on attempt {attempt}"
+                    )
+                    time.sleep(retry_delay)
+                else:
+                    raise AssertionError(
+                        f"Не удалось получить заказ {order_id} после {max_retries} попыток. "
+                        f"Последняя ошибка: {str(e)}"
+                    )
+        raise AssertionError(f"Метод неожиданно завершился без возврата ответа")
 
 
     @validate_with_pydantic(CreateUser)
