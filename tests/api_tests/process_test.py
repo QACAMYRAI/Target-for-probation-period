@@ -45,8 +45,8 @@ class TestProcessAPI:
         pet_id = pet.json()['id']
         self.created_pet_ids.append(pet_id)
         self.api_methods.get_pet_by_api(pet_id)
-        self.api_methods.user_login_by_api(username, user['password'])
-        order_response = self.api_methods.order_pet_by_api(pet_id)
+        api_key = self.api_methods.user_login_by_api(username, user['password'])[1]
+        order_response = self.api_methods.order_pet_by_api(pet_id, api_key=api_key)
         order_id = order_response.json()['id']
         self.created_order_ids.append(order_id)
         self.api_methods.get_pet_order_by_api(order_id).json()
@@ -68,8 +68,8 @@ class TestProcessAPI:
         self.created_usernames.append(username)
         self.api_methods.get_user_info_by_api(username)
         self.api_methods.get_pet_by_api(pet_id)
-        self.api_methods.user_login_by_api(username, user['password'])
-        order_response = self.api_methods.order_pet_by_api(pet_id)
+        apy_key = self.api_methods.user_login_by_api(username, user['password'])[1]
+        order_response = self.api_methods.order_pet_by_api(pet_id, api_key=apy_key)
         order_id = order_response.json()['id']
         self.created_order_ids.append(order_id)
         self.api_methods.get_pet_order_by_api(order_id).json()
@@ -88,12 +88,12 @@ class TestProcessAPI:
         self.created_usernames.append(username)
         self.api_methods.get_user_info_by_api(username)
         self.api_methods.get_pet_by_api(pet_id)
-        self.api_methods.user_login_by_api(username, user['password'])
-        order_response = self.api_methods.order_pet_by_api(pet_id)
+        api_key = self.api_methods.user_login_by_api(username, user['password'])[1]
+        order_response = self.api_methods.order_pet_by_api(pet_id, api_key=api_key)
         order_id = order_response.json()['id']
         self.created_order_ids.append(order_id)
         self.api_methods.get_pet_order_by_api(order_id)
-        self.api_methods.delete_pet_order_by_api(order_id)
+        self.api_methods.delete_pet_order_by_api(order_id, api_key=api_key)
         self.api_methods.get_pet_order_by_api(order_id, status_code=404)
         if order_id in self.created_order_ids:
             self.created_order_ids.remove(order_id)

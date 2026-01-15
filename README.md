@@ -15,7 +15,7 @@
 | Git | Контроль версий |
 
 - **Перед запуском необходимо**:
- - Создать .env файл с переменоой BASE_DOMAIN равный тестируемому API https://petstore3.swagger.io/api/v3/
+ - Создать .env файл с переменоой BASE_DOMAIN равный тестируемому API https://petstore.swagger.io/v2/
  - Обновить зависимости pip install -r requirements.txt
  - Запустить прогон pytest
  - Собрать allure отчет allure serve
