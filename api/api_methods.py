@@ -1,5 +1,4 @@
 import allure
-import time
 from payload.pet_payload import PetPayload
 from utils.sessions import main_url
 import tests
@@ -168,15 +167,10 @@ class API:
                                status: str = 'placed',
                                complete: bool = True,
                                remove_keys: str = None,
-                               status_code: int = 200,
-                               api_key: str = None,):
+                               status_code: int = 200):
         data = PetPayload().create_pet_order_payload(pet_id, quantity, ship_date, status, complete, remove_keys)
-        headers = {}
-        if api_key is not None:
-            headers['api_key'] = api_key
         response = main_url().post(f'store/order',
                                    json=data,
-                                   headers=headers if headers else None,
                                    timeout=10,
                                    )
         assert response.status_code == status_code, f'Статус код {response.status_code} не равен {status_code}'
@@ -184,59 +178,21 @@ class API:
 
 
     @allure.step('Удалить заказ по APi')
-    def delete_pet_order_by_api(self, order_id: str, api_key: str = None, status_code: int = 200):
-        headers = {}
-        if api_key is not None:
-            headers['api_key'] = api_key
-        response = main_url().delete(f'store/order/{order_id}',  headers=headers if headers else None)
+    def delete_pet_order_by_api(self, order_id: str, status_code: int = 200):
+        response = main_url().delete(f'store/order/{order_id}')
         assert response.status_code == status_code, (
             f'Статус код {response.status_code} не равен {status_code}\n'
             f'Текст ответа: {response.text}'
         )
         return response
 
+
     @validate_with_pydantic(CreateOrderResponse)
-    @allure.step('Получить информацию о заказе питомца по API')
-    def get_pet_order_by_api(self,
-                             order_id: int,
-                             status_code: int = 200,
-                             max_retries: int = 2,
-                             retry_delay: float = 0.5):
-
-        for attempt in range(1, max_retries + 1):
-            try:
-                response = main_url().get(f'store/order/{order_id}')
-
-                if response.status_code == status_code:
-                    return response
-
-                if attempt < max_retries:
-                    allure.attach(
-                        f"Попытка {attempt} неудачна. Статус код: {response.status_code}. "
-                        f"Ожидалось: {status_code}. Повтор через {retry_delay}с.",
-                        name=f"Retry attempt {attempt}"
-                    )
-                    time.sleep(retry_delay)
-                else:
-                    assert False, (
-                        f"Статус код {response.status_code} не равен {status_code} "
-                        f"после {max_retries} попыток. Ответ: {response.text}"
-                    )
-
-            except Exception as e:
-                if attempt < max_retries:
-                    allure.attach(
-                        f"Попытка {attempt} вызвала исключение: {str(e)}. "
-                        f"Повтор через {retry_delay}с.",
-                        name=f"Exception on attempt {attempt}"
-                    )
-                    time.sleep(retry_delay)
-                else:
-                    raise AssertionError(
-                        f"Не удалось получить заказ {order_id} после {max_retries} попыток. "
-                        f"Последняя ошибка: {str(e)}"
-                    )
-        raise AssertionError(f"Метод неожиданно завершился без возврата ответа")
+    @allure.step('Получить информацию о заказе питомца по APi')
+    def get_pet_order_by_api(self, order_id: int, status_code: int = 200):
+        response = main_url().get(f'store/order/{order_id}')
+        assert response.status_code == status_code, f'Статус код {response.status_code} не равен {status_code}'
+        return response
 
 
     @validate_with_pydantic(CreateUser)
@@ -316,19 +272,13 @@ class API:
         }
         response = main_url().get(f'user/login', params=params)
         assert response.status_code == status_code, f'Статус код {response.status_code} не равен {status_code}'
-        api_key = response.json()['message'].split(':')[-1]
-        return response, api_key
+        return response
 
 
     @validate_with_pydantic(CreateUser)
     @allure.step('Логаут пользователя по API')
-    def user_logout_by_api(self, api_key:str = None,
-                           status_code: int = 200):
-        headers = {}
-        if api_key is not None:
-            headers['api_key'] = api_key
-        response = main_url().get(f'user/logout',
-                                  headers=headers if headers else None,)
+    def user_logout_by_api(self, status_code: int = 200):
+        response = main_url().get(f'user/logout')
         assert response.status_code == status_code, f'Статус код {response.status_code} не равен {status_code}'
         return response
 

@@ -126,14 +126,14 @@ class TestUserAPI:
     def test_login_logout_user(self):
         response, user = self.api_methods.create_user_by_api()
         self.created_users.append(user)
-        api_key = self.api_methods.user_login_by_api(user['username'], user['password'])[1]
-        self.api_methods.user_logout_by_api(api_key=api_key)
+        self.api_methods.user_login_by_api(user['username'], user['password'])
+        self.api_methods.user_logout_by_api()
 
 
     @allure.tag('ТК-79.2')
     @allure.severity(severity_level='normal')
     @allure.title('Тест логин несуществующего пользователя')
-    def test_login_user_wrong_data(self):
+    def test_login_logout_user(self):
         self.api_methods.user_login_by_api('121some_user121', '121some_password121', status_code=400)
 
 
